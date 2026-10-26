@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <div>
+                <h1>Student Performance Analytics Dashboard</h1>
+                <p class="subtitle">Academic Insights, Attendance Tracking, and Student Success Metrics</p>
+            </div>
+            <div class="header-actions">
+                <button id="reset-filters-btn" class="btn btn-secondary">Reset Filters</button>
+            </div>
+        </header>
+
+        <!-- Filter Panel -->
+        <section class="filter-panel card">
+            <div class="filter-group">
+                <label for="filter-department">Department</label>
+                <select id="filter-department">
+                    <option value="ALL">All Departments</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-year">Academic Year</label>
+                <select id="filter-year">
+                    <option value="ALL">All Years</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-band">Performance Band</label>
+                <select id="filter-band">
+                    <option value="ALL">All Bands</option>
+                    <option value="High Performance">High Performance (≥75%)</option>
+                    <option value="Moderate Performance">Moderate Performance (50-74%)</option>
+                    <option value="Low Performance">Low Performance (&lt;50%)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-status">Pass Status</label>
+                <select id="filter-status">
+                    <option value="ALL">All Statuses</option>
+                    <option value="Passed">Passed</option>
+                    <option value="Failed">Failed</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-gender">Gender</label>
+                <select id="filter-gender">
+                    <option value="ALL">All Genders</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-internet">Internet Access</label>
+                <select id="filter-internet">
+                    <option value="ALL">All</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- KPI Cards Section -->
+        <section class="kpi-section">
+            <div class="kpi-card card">
+                <span class="kpi-title">Total Students</span>
+                <span class="kpi-value" id="kpi-total-students">0</span>
+                <span class="kpi-subtext">Active Enrolled Records</span>
+            </div>
+            <div class="kpi-card card">
+                <span class="kpi-title">Average Final Score</span>
+                <span class="kpi-value" id="kpi-avg-score">0.0%</span>
+                <span class="kpi-subtext">Overall Academic Score</span>
+            </div>
+            <div class="kpi-card card">
+                <span class="kpi-title">Pass Rate</span>
+                <span class="kpi-value" id="kpi-pass-rate">0.0%</span>
+                <span class="kpi-subtext">Students Score ≥ 50%</span>
+            </div>
+            <div class="kpi-card card">
+                <span class="kpi-title">Avg Attendance</span>
+                <span class="kpi-value" id="kpi-avg-attendance">0.0%</span>
+                <span class="kpi-subtext">Classroom Presence</span>
+            </div>
+            <div class="kpi-card card">
+                <span class="kpi-title">Avg Assignment Score</span>
+                <span class="kpi-value" id="kpi-avg-assignment">0.0%</span>
+                <span class="kpi-subtext">Coursework Evaluation</span>
+            </div>
+        </section>
+
+        <!-- Main Charts Grid -->
+        <section class="charts-grid">
+            <div class="chart-card card">
+                <h3>Performance Band Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="chart-performance-band"></canvas>
+                </div>
+            </div>
+            <div class="chart-card card">
+                <h3>Average Final Score by Department</h3>
+                <div class="chart-container">
+                    <canvas id="chart-dept-performance"></canvas>
+                </div>
+            </div>
+            <div class="chart-card card">
+                <h3>Pass / Fail Ratio by Academic Year</h3>
+                <div class="chart-container">
+                    <canvas id="chart-pass-year"></canvas>
+                </div>
+            </div>
+            <div class="chart-card card">
+                <h3>Attendance vs. Final Score Correlation</h3>
+                <div class="chart-container">
+                    <canvas id="chart-attendance-correlation"></canvas>
+                </div>
+            </div>
+            <div class="chart-card card full-width">
+                <h3>Assignment Average vs. Exam Score Comparison by Department</h3>
+                <div class="chart-container">
+                    <canvas id="chart-assignment-exam"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
